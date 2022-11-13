@@ -1,4 +1,4 @@
-package de.hschaeufler.bookshop.bookservice.books.entity;
+package de.hschaeufler.bookshop.bookservice.books;
 
 public class BookEntityFactory implements BookFactory {
 
