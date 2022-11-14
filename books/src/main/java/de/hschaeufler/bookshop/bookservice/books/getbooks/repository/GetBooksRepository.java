@@ -5,6 +5,6 @@ import de.hschaeufler.bookshop.bookservice.books.getbooks.usecase.NoBooksFoundEx
 
 import java.util.List;
 
-public interface GetBookRepository {
+public interface GetBooksRepository {
  List<Book> getBooks() throws NoBooksFoundException;
 }

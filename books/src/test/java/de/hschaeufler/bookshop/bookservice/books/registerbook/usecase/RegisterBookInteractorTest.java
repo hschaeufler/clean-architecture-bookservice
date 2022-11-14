@@ -25,9 +25,6 @@ public class RegisterBookInteractorTest {
     private RegisterBook registerBook;
     private BookFactory bookFactory;
 
-    @Captor
-    ArgumentCaptor<Book> bookCapture;
-
     @BeforeEach
     void setup() {
         bookFactory = new BookEntityFactory();
