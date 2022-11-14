@@ -1,8 +1,6 @@
 package de.hschaeufler.bookshop.bookservice.books;
 
 
-import de.hschaeufler.bookshop.bookservice.books.Book;
-import de.hschaeufler.bookshop.bookservice.books.BookEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +20,7 @@ public class BookEntityTest {
 
         // when
         final BookEntity actualBookEntity = new BookEntity(
-                givenAuthor, givenTitle, givenIsbn
+                givenTitle, givenAuthor, givenIsbn
         );
         // then
         assertTrue(actualBookEntity instanceof Book);
@@ -33,7 +31,7 @@ public class BookEntityTest {
     void givenBookEntityWithAuthor_whenGetAuthorIsCalled_thenShouldReturnGivenAuthor() {
         // given
         final BookEntity givenBookEntity = new BookEntity(
-                givenAuthor, givenTitle, givenIsbn
+                givenTitle, givenAuthor, givenIsbn
         );
 
         // when
@@ -48,7 +46,7 @@ public class BookEntityTest {
     void givenBookEntityWithTitle_whenGetAuthorIsCalled_thenShouldReturnGivenTitle() {
         // given
         final BookEntity givenBookEntity = new BookEntity(
-                givenAuthor, givenTitle, givenIsbn
+                givenTitle, givenAuthor, givenIsbn
         );
 
         // when
@@ -63,7 +61,7 @@ public class BookEntityTest {
     void givenBookEntityWithISBN_whenGetAuthorIsCalled_thenShouldReturnGivenISBN() {
         // given
         final BookEntity givenBookEntity = new BookEntity(
-                givenAuthor, givenTitle, givenIsbn
+                givenTitle, givenAuthor, givenIsbn
         );
 
         // when

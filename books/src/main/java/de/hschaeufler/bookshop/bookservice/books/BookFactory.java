@@ -1,5 +1,5 @@
 package de.hschaeufler.bookshop.bookservice.books;
 
 public interface BookFactory {
-    Book create(String author, String title, String isbn);
+    Book create(String title, String author, String isbn);
 }

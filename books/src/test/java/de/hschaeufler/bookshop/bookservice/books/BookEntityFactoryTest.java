@@ -1,9 +1,5 @@
 package de.hschaeufler.bookshop.bookservice.books;
 
-import de.hschaeufler.bookshop.bookservice.books.Book;
-import de.hschaeufler.bookshop.bookservice.books.BookEntity;
-import de.hschaeufler.bookshop.bookservice.books.BookEntityFactory;
-import de.hschaeufler.bookshop.bookservice.books.BookFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -34,10 +30,10 @@ public class BookEntityFactoryTest {
         final String givenISBN = "12333";
 
         // when
-        final Book actualBook = givenBookEntityFactory.create(givenAuthor,givenTitle,givenISBN);
+        final Book actualBook = givenBookEntityFactory.create(givenTitle, givenAuthor, givenISBN);
 
         // then
-        final Book expectedBook = new BookEntity(givenAuthor,givenTitle,givenISBN);
+        final Book expectedBook = new BookEntity(givenTitle, givenAuthor, givenISBN);
 
         assertThat(expectedBook,samePropertyValuesAs(actualBook));
     }

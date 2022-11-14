@@ -4,7 +4,7 @@ import de.hschaeufler.bookshop.bookservice.books.Book;
 import de.hschaeufler.bookshop.bookservice.books.BookFactory;
 import de.hschaeufler.bookshop.bookservice.books.registerbook.repository.RegisterBookRepository;
 
-public class RegisterBookInteractor implements RegisterBookInputBoundary {
+public class RegisterBookInteractor implements RegisterBook {
     private final RegisterBookRepository registerBookRepository;
     private final BookFactory bookFactory;
 
@@ -22,13 +22,19 @@ public class RegisterBookInteractor implements RegisterBookInputBoundary {
         }
 
         Book book = bookFactory.create(
-                bookRequestModel.getAuthor(),
                 bookRequestModel.getTitle(),
+                bookRequestModel.getAuthor(),
                 bookRequestModel.getIsbn()
         );
 
         registerBookRepository.save(book);
 
-        return null;
+        BookResponseModel bookResponseModel = new BookResponseModel(
+                book.getTitle(),
+                book.getAuthor(),
+                book.getISBN()
+        );
+
+        return bookResponseModel;
     }
 }
