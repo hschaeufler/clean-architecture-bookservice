@@ -6,6 +6,8 @@ import de.hschaeufler.bookshop.bookservice.details.data.model.BookModel;
 import de.hschaeufler.bookshop.bookservice.policy.Book;
 import de.hschaeufler.bookshop.bookservice.policy.getbooks.repository.GetBooksRepository;
 import de.hschaeufler.bookshop.bookservice.policy.registerbook.repository.RegisterBookRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 

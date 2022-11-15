@@ -17,6 +17,7 @@ public class RegisterBookInteractor implements RegisterBook {
     @Override
     public RegisterBookResponseModel registerBook(RegisterBookRequestModel registerBookRequestModel) throws BookAllreadyExistsException {
         final String isbn = registerBookRequestModel.getIsbn();
+
         if (registerBookRepository.existsBookByISBN(isbn)) {
             throw new BookAllreadyExistsException();
         }
