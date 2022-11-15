@@ -7,23 +7,20 @@ The ``testdata`` folder contains a collection of request messages for Postman.
 ## Challenges
 The students have to solve several challenges. These are implemented via individual Git branches.
 ### Current Challenge
-Current Challenge is Challenge Nr. 1:
+Current Challenge is Challenge Nr. 0:
 ```
-Implement the UseCase GetBooks in the GetBooksInteractor class.
-- The necessary classes can be found in the policy module in the getBooks folder.
-- Use the branch lecture/challange-one-domain (git checkout)
-- Use the GetBooksRepository to find the books
-- For the conversion of the BookModel to the Entity there is a Mapper
-- If there are no books, a NoBooksFoundException should be thrown.
-- Tests the functionality with the already implemented unit tests (TDD).
-- The entity can be mapped to the response model via the following line
+Implement the Book interface in the BookEntity class.
+- The necessary classes can be found in the policy module in the policy folder.
+- The class BookEntity has already been created
+- Use the branch lecture/challange-zero-entity (git checkout)
+- The constructor should be protected
+- Test the functionality with the already implemented unit tests (TDD).
 
-return books.stream().map(book -> new GetBooksResponseModel(
-        book.getTitle(),
-        book.getAuthor(),
-        book.getISBN(),
-        books.indexOf(book)
-)).collect(Collectors.toList());
+You should have the following fields
+
+private final String title;
+private final String author;
+private final String isbn;
 
 ```
 ## Getting Started
