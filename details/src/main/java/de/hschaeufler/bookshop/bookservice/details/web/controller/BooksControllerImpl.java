@@ -26,28 +26,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class BooksControllerImpl implements GetBooksController, RegisterBookController {
+public class BooksControllerImpl implements RegisterBookController {
     Logger logger = LoggerFactory.getLogger(BooksControllerImpl.class);
 
-    final GetBooks getBooks;
-    final GetBooksResponseMapper getBooksResponseMapper;
     final RegisterBook registerBook;
     final RegisterBookRequestMapper registerBookRequestMapper;
     final RegisterBookResponseMapper registerBookResponseMapper;
 
-
-    @GetMapping("/books")
-    public List<GetBooksResponseDTO> getBooks() {
-        try {
-            final List<GetBooksResponseModel> getBooksResponseModelList = getBooks.getBooks();
-            return this.getBooksResponseMapper.toResponseDTOs(getBooksResponseModelList);
-        } catch (NoBooksFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Books Found!", e);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "I'm a Teapot!", e);
-        }
-
-    }
 
     @PostMapping("/books")
     public RegisterBookResponseDTO registerBook(@RequestBody RegisterBookRequestDTO registerBookRequestDTO) {
