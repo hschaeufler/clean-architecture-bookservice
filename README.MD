@@ -6,3 +6,5 @@ The Maven module ``Policy`` contains all the business objects and rules. The ``D
 The ``testdata`` folder contains a collection of request messages for Postman.
 ## Challenges
 The students have to solve several challenges. These are implemented via individual Git branches.
+## Getting Started
+Clone the project with ``git clone``. You need the JDK 17, an IDE and Maven. After the repository is cloned, you can call mvn install in the parent module to resolve the dependencies.  With ``mvn spring-boot:run`` you can execute the service.
