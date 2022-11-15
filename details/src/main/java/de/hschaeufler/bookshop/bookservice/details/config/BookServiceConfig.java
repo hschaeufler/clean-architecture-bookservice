@@ -26,11 +26,6 @@ public class BookServiceConfig {
     }
 
     @Bean
-    public GetBooks getBooks(GetBooksRepository getBooksRepository) {
-        return new GetBooksInteractor(getBooksRepository);
-    }
-
-    @Bean
     public RegisterBook registerBook(RegisterBookRepository registerBookRepository, BookFactory bookFactory) {
         return new RegisterBookInteractor(registerBookRepository, bookFactory);
     }
@@ -47,11 +42,6 @@ public class BookServiceConfig {
 
     @Bean
     public RegisterBookRepository registerBookRepository(BookRepositoryImpl bookRepository) {
-        return bookRepository;
-    }
-
-    @Bean
-    public GetBooksRepository getBooksRepository(BookRepositoryImpl bookRepository) {
         return bookRepository;
     }
 
