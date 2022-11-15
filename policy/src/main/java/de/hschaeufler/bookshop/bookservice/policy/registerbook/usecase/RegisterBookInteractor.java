@@ -1,8 +1,8 @@
 package de.hschaeufler.bookshop.bookservice.policy.registerbook.usecase;
 
+import de.hschaeufler.bookshop.bookservice.policy.Book;
 import de.hschaeufler.bookshop.bookservice.policy.BookFactory;
 import de.hschaeufler.bookshop.bookservice.policy.registerbook.repository.RegisterBookRepository;
-import de.hschaeufler.bookshop.bookservice.policy.Book;
 
 public class RegisterBookInteractor implements RegisterBook {
     private final RegisterBookRepository registerBookRepository;

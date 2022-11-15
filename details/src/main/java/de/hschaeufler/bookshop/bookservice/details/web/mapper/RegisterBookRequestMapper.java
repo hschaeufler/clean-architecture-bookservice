@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RegisterBookRequestMapper {
 
-    public RegisterBookRequestModel toRequestModel(RegisterBookRequestDTO registerBookRequestDTO){
+    public RegisterBookRequestModel toRequestModel(RegisterBookRequestDTO registerBookRequestDTO) {
         return new RegisterBookRequestModel(
                 registerBookRequestDTO.getTitle(),
                 registerBookRequestDTO.getAuthor(),

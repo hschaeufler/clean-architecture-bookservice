@@ -1,7 +1,7 @@
 package de.hschaeufler.bookshop.bookservice.policy.getbooks.usecase;
 
-import de.hschaeufler.bookshop.bookservice.policy.getbooks.repository.GetBooksRepository;
 import de.hschaeufler.bookshop.bookservice.policy.Book;
+import de.hschaeufler.bookshop.bookservice.policy.getbooks.repository.GetBooksRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,10 +15,10 @@ public class GetBooksInteractor implements GetBooks {
     }
 
     @Override
-    public List<GetBooksResponseModel> getBooks() throws NoBooksFoundException{
+    public List<GetBooksResponseModel> getBooks() throws NoBooksFoundException {
         final List<Book> books = this.getBooksRepository.getBooks();
 
-        if(books.isEmpty()) {
+        if (books.isEmpty()) {
             throw new NoBooksFoundException();
         }
 

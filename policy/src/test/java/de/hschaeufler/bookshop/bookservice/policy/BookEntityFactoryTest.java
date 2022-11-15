@@ -1,9 +1,5 @@
 package de.hschaeufler.bookshop.bookservice.policy;
 
-import de.hschaeufler.bookshop.bookservice.policy.Book;
-import de.hschaeufler.bookshop.bookservice.policy.BookEntity;
-import de.hschaeufler.bookshop.bookservice.policy.BookEntityFactory;
-import de.hschaeufler.bookshop.bookservice.policy.BookFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BookEntityFactoryTest {
     @Test
     @DisplayName("GIVEN nothing WHEN BookEntityFactory is instantiated THEN it should be a instance of BookFactory")
-    void givenNothing_whenInstantiateBookEntityFactory_isInstanceOfBookFactory () {
+    void givenNothing_whenInstantiateBookEntityFactory_isInstanceOfBookFactory() {
         // given
         // nothing
         // when
@@ -26,7 +22,7 @@ public class BookEntityFactoryTest {
 
     @Test
     @DisplayName("GIVEN BookEntityFactory WHEN create is called with given values THEN it should return a Book with given values")
-    void givenBookEntityFactory_whenCreateBook_thenReturnBookWithGivenValues () {
+    void givenBookEntityFactory_whenCreateBook_thenReturnBookWithGivenValues() {
         // given
         final BookEntityFactory givenBookEntityFactory = new BookEntityFactory();
         final String givenTitle = "Clean Architecture";
@@ -39,6 +35,6 @@ public class BookEntityFactoryTest {
         // then
         final Book expectedBook = new BookEntity(givenTitle, givenAuthor, givenISBN);
 
-        assertThat(expectedBook,samePropertyValuesAs(actualBook));
+        assertThat(expectedBook, samePropertyValuesAs(actualBook));
     }
 }

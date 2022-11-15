@@ -1,8 +1,8 @@
 package de.hschaeufler.bookshop.bookservice.details.data.mapper;
 
 import de.hschaeufler.bookshop.bookservice.details.data.model.BookModel;
-import de.hschaeufler.bookshop.bookservice.policy.BookFactory;
 import de.hschaeufler.bookshop.bookservice.policy.Book;
+import de.hschaeufler.bookshop.bookservice.policy.BookFactory;
 import lombok.AllArgsConstructor;
 
 import java.util.List;

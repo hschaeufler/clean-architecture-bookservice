@@ -6,8 +6,8 @@ import de.hschaeufler.bookshop.bookservice.details.web.mapper.RegisterBookRespon
 import de.hschaeufler.bookshop.bookservice.details.web.model.GetBooksResponseDTO;
 import de.hschaeufler.bookshop.bookservice.details.web.model.RegisterBookRequestDTO;
 import de.hschaeufler.bookshop.bookservice.details.web.model.RegisterBookResponseDTO;
-import de.hschaeufler.bookshop.bookservice.policy.getbooks.usecase.GetBooksResponseModel;
 import de.hschaeufler.bookshop.bookservice.policy.getbooks.usecase.GetBooks;
+import de.hschaeufler.bookshop.bookservice.policy.getbooks.usecase.GetBooksResponseModel;
 import de.hschaeufler.bookshop.bookservice.policy.getbooks.usecase.NoBooksFoundException;
 import de.hschaeufler.bookshop.bookservice.policy.registerbook.usecase.BookAllreadyExistsException;
 import de.hschaeufler.bookshop.bookservice.policy.registerbook.usecase.RegisterBook;
@@ -37,7 +37,7 @@ public class BooksControllerImpl implements GetBooksController, RegisterBookCont
             final List<GetBooksResponseModel> getBooksResponseModelList = getBooks.getBooks();
             return this.getBooksResponseMapper.toResponseDTOs(getBooksResponseModelList);
         } catch (NoBooksFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No Books Found!", e);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Books Found!", e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "I'm a Teapot!", e);
         }
@@ -56,7 +56,7 @@ public class BooksControllerImpl implements GetBooksController, RegisterBookCont
             return this.registerBookResponseMapper.toResponseDTO(registerBookResponseModel);
 
         } catch (BookAllreadyExistsException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Oh oh, Book already exists!", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Oh oh, Book already exists!", e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "I'm a Teapot!", e);
         }

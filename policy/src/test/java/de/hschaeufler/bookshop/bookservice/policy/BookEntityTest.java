@@ -1,8 +1,6 @@
 package de.hschaeufler.bookshop.bookservice.policy;
 
 
-import de.hschaeufler.bookshop.bookservice.policy.Book;
-import de.hschaeufler.bookshop.bookservice.policy.BookEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

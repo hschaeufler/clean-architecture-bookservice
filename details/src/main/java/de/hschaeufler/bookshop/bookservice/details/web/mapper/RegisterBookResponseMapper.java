@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class RegisterBookResponseMapper {
-    public RegisterBookResponseDTO toResponseDTO(RegisterBookResponseModel registerBookResponseModel){
+    public RegisterBookResponseDTO toResponseDTO(RegisterBookResponseModel registerBookResponseModel) {
         return new RegisterBookResponseDTO(
                 registerBookResponseModel.getTitle(),
                 registerBookResponseModel.getAuthor(),

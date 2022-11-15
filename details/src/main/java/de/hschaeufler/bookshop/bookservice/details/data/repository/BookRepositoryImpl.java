@@ -3,9 +3,9 @@ package de.hschaeufler.bookshop.bookservice.details.data.repository;
 import de.hschaeufler.bookshop.bookservice.details.data.datasource.BookDAO;
 import de.hschaeufler.bookshop.bookservice.details.data.mapper.BookModelMapper;
 import de.hschaeufler.bookshop.bookservice.details.data.model.BookModel;
+import de.hschaeufler.bookshop.bookservice.policy.Book;
 import de.hschaeufler.bookshop.bookservice.policy.getbooks.repository.GetBooksRepository;
 import de.hschaeufler.bookshop.bookservice.policy.registerbook.repository.RegisterBookRepository;
-import de.hschaeufler.bookshop.bookservice.policy.Book;
 
 import java.util.List;
 
