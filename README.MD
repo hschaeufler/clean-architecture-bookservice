@@ -7,24 +7,24 @@ The ``testdata`` folder contains a collection of request messages for Postman.
 ## Challenges
 The students have to solve several challenges. These are implemented via individual Git branches.
 ### Current Challenge
-Current Challenge is Challenge Nr. 2:
+Current Challenge is Challenge Nr. 1:
 ```
-Implement the GetBooksRepository in the BookRepositoryImpl class.
-- The necessary classes can be found in the details module in the data folder.
-- Use the branch lecture/challange-two-repository (git checkout)
-- The RegisterBookRepository can be used for orientation.
-- There is a mapper for converting the BookModel to an entity.
-- At the DataAccesObject (BookDAO) there is the method findAll()
-- Insert the following lines into the BookServiceConfig
+Implement the UseCase GetBooks in the GetBooksInteractor class.
+- The necessary classes can be found in the policy module in the getBooks folder.
+- Use the branch lecture/challange-one-domain (git checkout)
+- Use the GetBooksRepository to find the books
+- For the conversion of the BookModel to the Entity there is a Mapper
+- If there are no books, a NoBooksFoundException should be thrown.
+- Tests the functionality with the already implemented unit tests (TDD).
+- The entity can be mapped to the response model via the following line
 
-@Bean
-public GetBooksRepository getBooksRepository(BookRepositoryImpl bookRepository) {
-    return bookRepository;
-}
-@Bean
-public GetBooks getBooks(GetBooksRepository getBooksRepository) {
-    return new GetBooksInteractor(getBooksRepository);
-}
+return books.stream().map(book -> new GetBooksResponseModel(
+        book.getTitle(),
+        book.getAuthor(),
+        book.getISBN(),
+        books.indexOf(book)
+)).collect(Collectors.toList());
+
 ```
 ## Getting Started
 Clone the project with ``git clone``. You need the JDK 17, an IDE and Maven. After the repository is cloned, you can call mvn install in the parent module to resolve the dependencies.  With ``mvn spring-boot:run`` you can execute the service.
