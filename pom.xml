@@ -16,8 +16,8 @@
     </parent>
 
     <modules>
-        <module>domain</module>
-        <module>application</module>
+        <module>policy</module>
+        <module>details</module>
     </modules>
 
     <description>Clean Architecture Book Service</description>
