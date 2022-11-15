@@ -60,21 +60,21 @@ public class GetBooksInteractorTest {
         when(getBooksRepository.getBooks()).thenReturn(bookList);
 
         // when
-        final List<BookResponseModel> actualBookResponseModelList = getBooks.getBooks();
+        final List<GetBooksResponseModel> actualGetBooksResponseModelList = getBooks.getBooks();
 
 
         // then
         verify(getBooksRepository,times(1)).getBooks();
 
-        final List<BookResponseModel> expectedBookResponseModel = new ArrayList<>();
-        expectedBookResponseModel.add(new BookResponseModel(
+        final List<GetBooksResponseModel> expectedGetBooksResponseModel = new ArrayList<>();
+        expectedGetBooksResponseModel.add(new GetBooksResponseModel(
                 givenTitle,givenAuthor,givenISBN,0
         ));
-        expectedBookResponseModel.add(new BookResponseModel(
+        expectedGetBooksResponseModel.add(new GetBooksResponseModel(
                 givenTitle,givenAuthor,givenISBN,1
         ));
 
-        assertThat(actualBookResponseModelList, samePropertyValuesAs(expectedBookResponseModel));
+        assertThat(actualGetBooksResponseModelList, samePropertyValuesAs(expectedGetBooksResponseModel));
 
     }
 }

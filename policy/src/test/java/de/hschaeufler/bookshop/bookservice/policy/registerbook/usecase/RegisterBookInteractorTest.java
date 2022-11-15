@@ -45,22 +45,22 @@ public class RegisterBookInteractorTest {
         final String givenAuthor = "Uncle Bob";
         final String givenISBN = "12323";
 
-        final BookRequestModel givenBookRequestModel = new BookRequestModel(
+        final RegisterBookRequestModel givenRegisterBookRequestModel = new RegisterBookRequestModel(
                 givenTitle,
                 givenAuthor,
                 givenISBN
         );
 
         // when
-        final BookResponseModel actualBookResponseModel = registerBook.registerBook(givenBookRequestModel);
+        final RegisterBookResponseModel actualRegisterBookResponseModel = registerBook.registerBook(givenRegisterBookRequestModel);
 
         // then
         final Book expectedBook = this.bookFactory.create(givenTitle, givenAuthor, givenISBN);
-        final BookResponseModel expectedBookResponseModel = new BookResponseModel(givenTitle, givenAuthor, givenISBN);
+        final RegisterBookResponseModel expectedRegisterBookResponseModel = new RegisterBookResponseModel(givenTitle, givenAuthor, givenISBN);
 
         verify(registerBookRepository).existsBookByISBN(givenISBN);
         verify(registerBookRepository).save(refEq(expectedBook));
-        assertThat(actualBookResponseModel, samePropertyValuesAs(expectedBookResponseModel));
+        assertThat(actualRegisterBookResponseModel, samePropertyValuesAs(expectedRegisterBookResponseModel));
     }
 
     @Test
@@ -73,14 +73,14 @@ public class RegisterBookInteractorTest {
         final String givenAuthor = "Uncle Bob";
         final String givenISBN = "12323";
 
-        final BookRequestModel givenBookRequestModel = new BookRequestModel(
+        final RegisterBookRequestModel givenRegisterBookRequestModel = new RegisterBookRequestModel(
                 givenTitle,
                 givenAuthor,
                 givenISBN
         );
 
         // when
-        assertThrows(BookAllreadyExistsException.class, () -> registerBook.registerBook(givenBookRequestModel));
+        assertThrows(BookAllreadyExistsException.class, () -> registerBook.registerBook(givenRegisterBookRequestModel));
 
         // then
         verify(registerBookRepository, never()).save(any());

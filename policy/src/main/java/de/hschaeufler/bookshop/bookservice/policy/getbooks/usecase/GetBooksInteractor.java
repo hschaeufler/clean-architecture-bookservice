@@ -15,14 +15,14 @@ public class GetBooksInteractor implements GetBooks {
     }
 
     @Override
-    public List<BookResponseModel> getBooks() throws NoBooksFoundException{
+    public List<GetBooksResponseModel> getBooks() throws NoBooksFoundException{
         final List<Book> books = this.getBooksRepository.getBooks();
 
         if(books.isEmpty()) {
             throw new NoBooksFoundException();
         }
 
-        return books.stream().map(book -> new BookResponseModel(
+        return books.stream().map(book -> new GetBooksResponseModel(
                 book.getTitle(),
                 book.getAuthor(),
                 book.getISBN(),

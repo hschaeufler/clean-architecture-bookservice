@@ -15,26 +15,26 @@ public class RegisterBookInteractor implements RegisterBook {
 
 
     @Override
-    public BookResponseModel registerBook(BookRequestModel bookRequestModel) throws BookAllreadyExistsException {
-        final String isbn = bookRequestModel.getIsbn();
+    public RegisterBookResponseModel registerBook(RegisterBookRequestModel registerBookRequestModel) throws BookAllreadyExistsException {
+        final String isbn = registerBookRequestModel.getIsbn();
         if (registerBookRepository.existsBookByISBN(isbn)) {
             throw new BookAllreadyExistsException();
         }
 
         Book book = bookFactory.create(
-                bookRequestModel.getTitle(),
-                bookRequestModel.getAuthor(),
-                bookRequestModel.getIsbn()
+                registerBookRequestModel.getTitle(),
+                registerBookRequestModel.getAuthor(),
+                registerBookRequestModel.getIsbn()
         );
 
         registerBookRepository.save(book);
 
-        BookResponseModel bookResponseModel = new BookResponseModel(
+        RegisterBookResponseModel registerBookResponseModel = new RegisterBookResponseModel(
                 book.getTitle(),
                 book.getAuthor(),
                 book.getISBN()
         );
 
-        return bookResponseModel;
+        return registerBookResponseModel;
     }
 }

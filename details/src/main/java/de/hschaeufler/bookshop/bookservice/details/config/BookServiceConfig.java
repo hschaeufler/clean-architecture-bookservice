@@ -3,6 +3,9 @@ package de.hschaeufler.bookshop.bookservice.details.config;
 import de.hschaeufler.bookshop.bookservice.details.data.datasource.BookDAO;
 import de.hschaeufler.bookshop.bookservice.details.data.mapper.BookModelMapper;
 import de.hschaeufler.bookshop.bookservice.details.data.repository.BookRepositoryImpl;
+import de.hschaeufler.bookshop.bookservice.details.web.mapper.RegisterBookRequestMapper;
+import de.hschaeufler.bookshop.bookservice.details.web.mapper.RegisterBookResponseMapper;
+import de.hschaeufler.bookshop.bookservice.details.web.mapper.GetBooksResponseMapper;
 import de.hschaeufler.bookshop.bookservice.policy.getbooks.repository.GetBooksRepository;
 import de.hschaeufler.bookshop.bookservice.policy.BookEntityFactory;
 import de.hschaeufler.bookshop.bookservice.policy.BookFactory;
@@ -18,37 +21,52 @@ import org.springframework.context.annotation.Configuration;
 public class BookServiceConfig {
 
     @Bean
-    BookFactory bookFactory(){
+    public BookFactory bookFactory(){
         return new BookEntityFactory();
     }
 
     @Bean
-    GetBooks getBooks(GetBooksRepository getBooksRepository){
+    public GetBooks getBooks(GetBooksRepository getBooksRepository){
         return new GetBooksInteractor(getBooksRepository);
     }
 
     @Bean
-    RegisterBook registerBook(RegisterBookRepository registerBookRepository, BookFactory bookFactory){
+    public RegisterBook registerBook(RegisterBookRepository registerBookRepository, BookFactory bookFactory){
         return new RegisterBookInteractor(registerBookRepository, bookFactory);
     }
 
     @Bean
-    BookRepositoryImpl bookRepository(BookDAO bookDAO, BookModelMapper bookModelMapper){
+    public BookRepositoryImpl bookRepository(BookDAO bookDAO, BookModelMapper bookModelMapper){
         return new BookRepositoryImpl(bookDAO, bookModelMapper);
     }
 
     @Bean
-    BookModelMapper bookModelMapper(BookFactory bookFactory) {
+    public BookModelMapper bookModelMapper(BookFactory bookFactory) {
         return new BookModelMapper(bookFactory);
     }
 
     @Bean
-    RegisterBookRepository registerBookRepository(BookRepositoryImpl bookRepository){
+    public RegisterBookRepository registerBookRepository(BookRepositoryImpl bookRepository){
         return bookRepository;
     }
 
     @Bean
-    GetBooksRepository getBooksRepository(BookRepositoryImpl bookRepository){
+    public GetBooksRepository getBooksRepository(BookRepositoryImpl bookRepository){
         return bookRepository;
+    }
+
+    @Bean
+    public RegisterBookRequestMapper registerBookRequestMapper(){
+        return new RegisterBookRequestMapper();
+    }
+
+    @Bean
+    public RegisterBookResponseMapper registerBookResponseMapper(){
+        return new RegisterBookResponseMapper();
+    }
+
+    @Bean
+    public GetBooksResponseMapper getBooksResponseMapper(){
+        return new GetBooksResponseMapper();
     }
 }
